@@ -1,28 +1,28 @@
-// Mobile menu interaction for small screens
-const menuToggle = document.querySelector('.menu-toggle');
-const navList = document.querySelector('.nav-list');
+// Mobile navigation toggle
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
 
-if (menuToggle && navList) {
-  menuToggle.addEventListener('click', () => {
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-    navList.classList.toggle('open');
+if (menuBtn && menu) {
+  menuBtn.addEventListener('click', () => {
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
   });
 
-  navList.querySelectorAll('a').forEach((link) => {
+  menu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      navList.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-// Front-end contact form validation (static site compatible)
-const contactForm = document.getElementById('contact-form');
+// Contact form validation (front-end only)
+const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
-if (contactForm && formStatus) {
-  contactForm.addEventListener('submit', (event) => {
+if (form && formStatus) {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const name = document.getElementById('name');
@@ -41,7 +41,7 @@ if (contactForm && formStatus) {
     let valid = true;
 
     if (!name.value.trim() || name.value.trim().length < 2) {
-      nameError.textContent = 'Please enter at least 2 characters.';
+      nameError.textContent = 'Please enter your name (minimum 2 characters).';
       valid = false;
     }
 
@@ -52,20 +52,18 @@ if (contactForm && formStatus) {
     }
 
     if (!message.value.trim() || message.value.trim().length < 10) {
-      messageError.textContent = 'Message should contain at least 10 characters.';
+      messageError.textContent = 'Please enter a message (minimum 10 characters).';
       valid = false;
     }
 
-    if (!valid) {
-      return;
-    }
+    if (!valid) return;
 
-    formStatus.textContent = 'Thanks! Your inquiry is validated. Please email or connect on LinkedIn/Fiverr.';
-    contactForm.reset();
+    formStatus.textContent = 'Thanks! Your details are validated. Please connect via email, LinkedIn, or Fiverr.';
+    form.reset();
   });
 }
 
-// Reveal animation when sections enter viewport
+// Fade-in animation on scroll
 const revealElements = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {
@@ -73,21 +71,19 @@ if ('IntersectionObserver' in window) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.15 }
   );
 
-  revealElements.forEach((element) => observer.observe(element));
+  revealElements.forEach((el) => observer.observe(el));
 } else {
-  revealElements.forEach((element) => element.classList.add('show'));
+  revealElements.forEach((el) => el.classList.add('visible'));
 }
 
-// Auto update year in footer
+// Footer year
 const yearElement = document.getElementById('year');
-if (yearElement) {
-  yearElement.textContent = String(new Date().getFullYear());
-}
+if (yearElement) yearElement.textContent = String(new Date().getFullYear());
