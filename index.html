@@ -1,75 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern, responsive portfolio-style static website built for GitHub Pages."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, github pages, static website, html css javascript"
+    />
+    <meta name="author" content="Ravi Rathod" />
+    <meta name="robots" content="index, follow" />
+    <title>Ravi Rathod | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header + Navigation -->
+    <header class="site-header" id="home">
+      <nav class="navbar container" aria-label="Main navigation">
+        <a class="brand" href="#home">Ravi.dev</a>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-menu"
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
 
-<body>
-<!-- Content -->
-<div class="container">
-    <div class="row">
-    <!-- FIRST ROW -->
-    	<!-- First Block -->
-        <div class=" first-blockcol-xs-12 col-sm-6 col-md-4 col-lg-4 text-center">
-        	<div class=" first col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        		<div class="row">
-                    <article>
-                        <h2>Ravi Rathod</h2>
-                        <p>Hello, I am Ravi Rathod a Computer Engineer. I am amaze developer. I have worked with full n partially worldwide customer. i am expert in PHP and ios ... I can handle any PHP framework My motto is:"Trust and Work always speak" Thank you for knowing me....</p>
-                        </article>
-                        <article>
-                        <h2>Rathod Ravi</h2>
-                        <p>I am a Computer Engineer and Tech Geek love to work with web and technology coding.I have worked with too many clients from various country and worke with their languages.</p>
-                    </article>
-                </div>
-        	</div>
+        <ul class="nav-links" id="main-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero container">
+        <p class="eyebrow">Welcome</p>
+        <h1>Build clean, fast websites with confidence.</h1>
+        <p class="subtitle">
+          This lightweight static site is mobile-first, responsive, and ready for
+          GitHub Pages deployment.
+        </p>
+        <a class="btn cta" href="#projects">View Projects</a>
+      </section>
+    </header>
+
+    <main>
+      <!-- About Section -->
+      <section class="section container" id="about">
+        <h2>About</h2>
+        <p>
+          I am a web developer focused on creating modern user experiences with
+          semantic HTML, maintainable CSS, and performant vanilla JavaScript.
+          This starter portfolio demonstrates a practical structure you can extend
+          for personal or professional use.
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="section container" id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <article class="card">
+            <h3>Landing Page Redesign</h3>
+            <p>
+              A conversion-focused redesign with improved hierarchy, accessibility,
+              and responsive behavior.
+            </p>
+            <a href="#" aria-label="View Landing Page Redesign project">Learn more</a>
+          </article>
+
+          <article class="card">
+            <h3>Task Tracker UI</h3>
+            <p>
+              A simple client-side productivity app interface with intuitive layout
+              and smooth interactions.
+            </p>
+            <a href="#" aria-label="View Task Tracker UI project">Learn more</a>
+          </article>
+
+          <article class="card">
+            <h3>Docs Micro-Site</h3>
+            <p>
+              A fast static documentation site optimized for readability and quick
+              navigation across devices.
+            </p>
+            <a href="#" aria-label="View Docs Micro-Site project">Learn more</a>
+          </article>
         </div>
+      </section>
 
-        <!-- Second Block -->
-        <div class="second-block col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center">
-        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    	    	<div class="row">
-    	    		<div class="image">
-    	    			<img src="images/img9.jpg" alt="coffee">
-    	    		</div>
-    	    	</div>
+      <!-- Contact Section -->
+      <section class="section container" id="contact">
+        <h2>Contact</h2>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required minlength="2" />
+            <small class="error" id="name-error"></small>
+          </div>
 
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <small class="error" id="email-error"></small>
+          </div>
 
-    	    </div>
-        </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              minlength="10"
+            ></textarea>
+            <small class="error" id="message-error"></small>
+          </div>
 
-        	<!-- Thrid Block -->
-        <div class=" third-block col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
-        	<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        		<div class="row">
-                    <div class="image">
-                         <img src="images/img8.jpg" alt="coffee">
-                    </div>
-                </div>
+          <button class="btn" type="submit">Send Message</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Ravi Rathod. All rights reserved.</p>
+        <ul class="social-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+        </ul>
+      </div>
+    </footer>
 
-        	</div>
-        </div>
-    </div>
-
-
-    <!-- SECOND ROW -->
-    <!-- <div class=" second-row row text-center">
-        <div class="col-md-4">
-            <div class="col-md-12">...</div>
-        </div>
-        <div class="col-md-4">
-            <div class="col-md-12">...</div>
-        </div>
-        <div class="col-md-4">
-            <div class="col-md-12">...</div>
-        </div>
-    </div>
-</div> -->
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
